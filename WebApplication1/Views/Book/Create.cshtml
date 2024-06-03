@@ -1,0 +1,45 @@
+﻿@using WebApplication1.ViewModel
+@model BookFormVM;
+@section Title {
+    Books
+}
+@section SubTitle {
+ Create
+}
+<form asp-controller="Book" asp-action="Create" enctype="multipart/form-data">
+    <div class="card-body">
+        <div class="form-group">
+
+            <label asp-for="Title"></label>
+            <input type="text" class="form-control" asp-for="Title" />
+            <span asp-validation-for="Title" class="text-danger fs-6"></span>
+
+            <label asp-for="AuthorId"></label>
+            <select type="text" class="form-control" asp-for="AuthorId" asp-items="@Model.Authors"></select>
+            <span asp-validation-for="Title" class="text-danger fs-6"></span>
+
+            <label asp-for="Publisher"></label>
+            <input type="text" class="form-control" asp-for="Publisher" />
+            <span asp-validation-for="Publisher" class="text-danger fs-6"></span>
+
+            <label asp-for="PublishDate"></label>
+            <input type="date" class="form-control" asp-for="PublishDate" />
+            <span asp-validation-for="PublishDate" class="text-danger fs-6"></span>
+
+            <label asp-for="ImageUrl"></label>
+            <input type="file" class="form-control" asp-for="ImageUrl" />
+            <span asp-validation-for="ImageUrl" class="text-danger fs-6"></span>
+
+            <label asp-for="selectedCategories"></label>
+            <select type="text" class="form-control" asp-for="selectedCategories" asp-items="@Model.Categories"></select>
+            <span asp-validation-for="selectedCategories" class="text-danger fs-6"></span>
+
+            <label asp-for="Description"></label>
+            <textarea class="form-control" asp-for="Description"></textarea>
+            <span asp-validation-for="Description" class="text-danger fs-6"></span>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">"Add"</button>
+    </div>
+</form>

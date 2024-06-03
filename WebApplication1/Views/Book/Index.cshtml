@@ -1,0 +1,66 @@
+﻿@using WebApplication1.ViewModel
+@model List<BookVM>;
+@section Title {
+    Books
+}
+@section SubTitle {
+show
+}
+@section button {
+    <a class="btn btn-primary" asp-action="Create" asp-controller="Book">Create</a>
+}
+
+
+
+@if (!Model.Any())
+{
+    <div class="card-body">
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+            no book found
+        </div>
+    </div>
+}
+else
+{
+    <div class="card-body">
+        <h2>All Books</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>publisher</th>
+                    <th>publish data</th>
+                    <th>image</th>
+                    <th>category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in @Model)
+                {
+                    <tr>
+                        <td>@book.Id</td>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Publisher</td>
+                        <td>@book.PublishDate</td>
+                        <td><img src="~/img/books/@book.ImageUrl" width="50px" /></td>
+                        <td>@string.Join(", ",book.Categories)</td>
+                       
+                        <td>
+                            <a asp-action="Edit" asp-controller="Categories" asp-route-id="@book.Id" class="btn btn-outline-warning">Edit</a>
+                            <a asp-action="Details" asp-controller="Categories" asp-route-id="@book.Id" class="btn btn-outline-info">Details</a>
+                            <a data-id="@book.Id" class="btn js-delete btn-outline-danger">Delete</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+}

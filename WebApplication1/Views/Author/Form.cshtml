@@ -1,0 +1,22 @@
+﻿@using WebApplication1.ViewModel
+@model AuthorVM;
+@section Title {
+    Authores
+}
+@section SubTitle {
+    @(Model?.Id == null ? "Create" : "Edit")
+}
+<form asp-controller="Author">
+    <div class="card-body">
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input type="text" class="form-control" asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger fs-6"></span>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">@(Model?.Id == null ? "Add" : "Save")</button>
+    </div>
+</form>
+
+

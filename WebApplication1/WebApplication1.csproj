@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Dashboard\plugins\sweetalert2\sweetalert2.all.js" />
+    <None Include="wwwroot\Dashboard\plugins\sweetalert2\sweetalert2.all.min.js" />
+    <None Include="wwwroot\Dashboard\plugins\sweetalert2\sweetalert2.css" />
+    <None Include="wwwroot\Dashboard\plugins\sweetalert2\sweetalert2.js" />
+    <None Include="wwwroot\Dashboard\plugins\sweetalert2\sweetalert2.min.css" />
+    <None Include="wwwroot\Dashboard\plugins\sweetalert2\sweetalert2.min.js" />
+    <None Include="wwwroot\img\books\Anne.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.1" />

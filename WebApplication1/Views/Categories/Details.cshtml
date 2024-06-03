@@ -1,0 +1,37 @@
+﻿@using WebApplication1.ViewModel
+@model CategoryVM;
+@section Title {
+    Categories
+}
+@section SubTitle {
+    Details
+}
+<div class="card-body">
+   
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>Name</th>
+                <th>CreatedOn</th>
+                <th>UpdatedOn</th>
+            </tr>
+        </thead>
+        <tbody>
+       
+            
+                <tr>
+                    <td>@Model.Id</td>
+                    <td>@Model.Name</td>
+                <td>@Model.CreatedOn</td>
+                <td>@Model.UpdatedOn</td>
+                  
+
+                </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+
+

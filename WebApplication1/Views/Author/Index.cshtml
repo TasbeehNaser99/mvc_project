@@ -1,50 +1,56 @@
 ﻿@using WebApplication1.ViewModel
-@model List<CategoryVM>
-@section Title{
-    Categories
+@model List<AuthorVM>
+@section Title {
+    Authores
 }
-@section SubTitle{show}
-@section button{
-    <a class="btn btn-primary" asp-action="Create" asp-controller="Categories">Create</a>
+@section SubTitle {
+show
+}
+@section button {
+    <a class="btn btn-primary" asp-action="Create" asp-controller="Author">Create</a>
 }
 
 
 
-@if(!Model.Any()){
+@if (!Model.Any())
+{
     <div class="card-body">
-    <div class="alert alert-warning alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
-       no categories found
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+            no categories found
         </div>
     </div>
-}else{
-        <div class="card-body">
-        <h2>All Categories</h2>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th style="width: 10px">#</th>
-                <th>Name</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var category in @Model)
-            {
+}
+else
+{
+    <div class="card-body">
+        <h2>All Authores</h2>
+        <table class="table table-bordered">
+            <thead>
                 <tr>
-                    <td>@category.Id</td>
-                    <td>@category.Name</td>
-                        <td><a asp-action="Edit" asp-controller="Categories" asp-route-id="@category.Id" class="btn btn-outline-warning">Edit</a>
-                        <a asp-action="Details" asp-controller="Categories" asp-route-id="@category.Id" class="btn btn-outline-info">Details</a>
-                            <a  data-id="@category.Id" class="btn js-delete btn-outline-danger">Delete</a>
+                    <th style="width: 10px">#</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var author in @Model)
+                {
+                    <tr>
+                        <td>@author.Id</td>
+                        <td>@author.Name</td>
+                        <td>
+                            <a asp-action="Edit" asp-controller="Author" asp-route-id="@author.Id" class="btn btn-outline-warning">Edit</a>
+                            <a asp-action="Details" asp-controller="Author" asp-route-id="@author.Id" class="btn btn-outline-info">Details</a>
+                            <a data-id="@author.Id" class="btn js-delete btn-outline-danger">Delete</a>
                         </td>
 
-                </tr>
-            }
-        </tbody>
+                    </tr>
+                }
+            </tbody>
 
-    </table>
+        </table>
     </div>
 }
 @section Scripts {
@@ -62,7 +68,7 @@
                 }).then(async (result) => {
                     if (result.isConfirmed) {
                         const id = btn.dataset.id;
-                        const response = await fetch(`/Categories/Delete/${id}`, { method: 'POST' });
+                        const response = await fetch(`/Author/Delete/${id}`, { method: 'POST' });
                         if (response.ok) {
                             btn.closest("tr").remove();
                             const Toast = Swal.mixin({
@@ -81,7 +87,7 @@
                                 title: 'Success',
                             });
                         } else {
-                            // Handle the error if the response is not ok
+                           
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Error',
